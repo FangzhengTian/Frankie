@@ -4,6 +4,11 @@ angular.module('todo', ['ionic'])
  * from local storage, and also lets us save and load the
  * last active project index.
  */
+
+.config(function($ionicConfigProvider) {
+  $ionicConfigProvider.tabs.position('bottom');
+})
+
 .factory('Projects', function() {
   return {
     all: function() {
