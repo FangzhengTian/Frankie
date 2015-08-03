@@ -1,15 +1,32 @@
-angular.module('todo', ['ionic'])
+var app = angular.module('todo', ['ionic'])
 /**
  * The Projects factory handles saving and loading projects
  * from local storage, and also lets us save and load the
  * last active project index.
  */
 
-.config(function($ionicConfigProvider) {
+app.config(function($ionicConfigProvider) {
   $ionicConfigProvider.tabs.position('bottom');
 })
 
-.factory('Projects', function() {
+app.factory('Deals', function() {
+  return {
+    all: function() {
+      var dealsString = window.localStorage['deals'];
+      if (dealstring) {
+        return angular.fromJson(deasString);
+      }
+      return [];
+    },
+    updateAll: function() {
+
+
+    }
+  }
+
+})
+
+app.factory('Projects', function() {
   return {
     all: function() {
       var projectString = window.localStorage['projects'];
@@ -37,7 +54,7 @@ angular.module('todo', ['ionic'])
   }
 })
 
-.controller('TodoCtrl', function($scope, $timeout, $ionicModal, Projects, $ionicSideMenuDelegate) {
+app.controller('TodoCtrl', function($scope, $timeout, $ionicModal, Projects, $ionicSideMenuDelegate) {
 
   // A utility function for creating a new project
   // with the given projectTitle
